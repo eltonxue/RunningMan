@@ -1,11 +1,16 @@
+'''
+Created on Oct 22, 2016
+
+@author: EltonXue
+'''
 
 from kivy.uix.widget import Widget
 
 from sprite import Sprite
 
-class Platform(Widget):
+class Background(Widget):
     def __init__(self, source):
-        super(Platform, self).__init__()
+        super(Background, self).__init__()
         self.image = Sprite(source = source)
         self.add_widget(self.image)
         self.size = self.image.size
@@ -15,9 +20,9 @@ class Platform(Widget):
         self.add_widget(self.image_dupe2)
         
     def update(self):
-        self.image.x -= 4
-        self.image_dupe.x -= 4
-        self.image_dupe2.x -= 4
+        self.image.x -= 1.5
+        self.image_dupe.x -= 1.5
+        self.image_dupe2.x -= 1.5
         
         if self.image.right <= 0:
             self.image.x = 0
