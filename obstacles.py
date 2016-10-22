@@ -29,12 +29,12 @@ class Obstacles(Widget):
         self.image_dupe2.x -= 4
         self.image_dupe3.x -= 4
         
-        if self.image.right <= 0 - self.width:
-            self.image.x = self.width * 44
-        if self.image_dupe.right <= 0 - self.width:
-            self.image_dupe.x = self.width * 52
-        if self.image_dupe2.right <= 0 - self.width:
-            self.image_dupe2.x = self.width * 64
-        if self.image_dupe3.right <= 0 - self.width:
-            self.image_dupe3.x = self.width * 80
+        if self.image.right <= 0:
+            self.image.x = self.width * 44 + self.width
+        if self.image_dupe.right <= 0:
+            self.image_dupe.x = self.width * 52 + self.width
+        if self.image_dupe2.right <= 0:
+            self.image_dupe2.x = self.width * 64 + self.width
+        if self.image_dupe3.right <= 0:
+            self.image_dupe3.x = self.width * 80 + self.width
         
