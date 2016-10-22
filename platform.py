@@ -13,7 +13,7 @@ class Platform(Widget):
         self.add_widget(self.image_dupe)
         self.image_dupe2 = Sprite(source = source, x = self.width * 2)
         self.add_widget(self.image_dupe2)
-        
+     
     def update(self):
         self.image.x -= 2
         self.image_dupe.x -= 2
