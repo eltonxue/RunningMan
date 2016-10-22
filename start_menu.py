@@ -36,23 +36,6 @@ class TouchInput(Widget):
         pass
 
 
-# class Widgets(Widget):
-#     pass
-
-
-# class StartScreen(GridLayout):
-#     def __init__(self, **kwargs):
-#         super(StartScreen, self).__init__(**kwargs)
-#         self.cols = 2
-#         
-#         self.add_widget(Label(text = "Username:"))
-#         self.username = TextInput(multiline=False)
-#         self.add_widget(self.username)
-#         
-#         self.add_widget(Label(text = "Password:"))
-#         self.password = TextInput(multiline=False, password=True)
-#         self.add_widget(self.password)
-
 
 presentation = Builder.load_file("start_menu.kv")
 
