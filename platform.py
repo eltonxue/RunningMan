@@ -11,11 +11,15 @@ class Platform(Widget):
         self.size = self.image.size
         self.image_dupe = Sprite(source = source, x = self.width)
         self.add_widget(self.image_dupe)
+        self.image_dupe2 = Sprite(source = source, x = self.width * 2)
+        self.add_widget(self.image_dupe2)
         
     def update(self):
         self.image.x -= 8
         self.image_dupe.x -= 8
+        self.image_dupe2.x -= 8
         
         if self.image.right <= 0:
             self.image.x = 0
             self.image_dupe.x = self.width
+            self.image_dupe2.x = self.width * 2
