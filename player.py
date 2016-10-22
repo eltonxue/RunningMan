@@ -1,15 +1,12 @@
 
 from kivy.uix.image import Image
 
+from kivy.clock import Clock
+from sprite import Sprite
+
 
 running_anim = {x:'assets/player_running/resized75/running{}t.gif'.format(str(x))   for x in range(0,10)}
 jump_anim = {x:'assets/player_running/jump/jump{}.gif'.format(str(x))   for x in range(0,7)}
-
-class Sprite(Image):
-    def __init__(self,**kwargs):
-        super(Sprite,self).__init__(**kwargs)
-        self.size = self.texture_size
-        
         
 class Player(Sprite):
     def __init__(self,pos):
@@ -26,7 +23,7 @@ class Player(Sprite):
     def on_touch_down(self, *ignore):
         
         if self._jumped == False:
-            self._velocity_y = 5
+            self._velocity_y = 7
             self._jumped = True
         else:
             pass
