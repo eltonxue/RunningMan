@@ -20,9 +20,9 @@ class Background(Widget):
         self.add_widget(self.image_dupe2)
         
     def update(self):
-        self.image.x -= 1.5
-        self.image_dupe.x -= 1.5
-        self.image_dupe2.x -= 1.5
+        self.image.x -= 1
+        self.image_dupe.x -= 1
+        self.image_dupe2.x -= 1
         
         if self.image.right <= 0:
             self.image.x = 0
