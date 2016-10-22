@@ -1,7 +1,6 @@
-from kivy.app import App
-from kivy.uix.widget import Widget
+
 from kivy.uix.image import Image
-from kivy.clock import Clock
+
 
 running_anim = {x:'assets/player_running/resized75/running{}t.gif'.format(str(x))   for x in range(0,10)}
 jump_anim = {x:'assets/player_running/jump/jump{}.gif'.format(str(x))   for x in range(0,7)}
@@ -25,6 +24,7 @@ class Player(Sprite):
     
     
     def on_touch_down(self, *ignore):
+        
         if self._jumped == False:
             self._velocity_y = 5
             self._jumped = True
@@ -58,24 +58,3 @@ class Player(Sprite):
                 self._run_count = 0
             
             self.source = running_anim[self._run_count] 
-# class Game(Widget):
-#     
-#     def __init__(self, **kwargs):
-#         
-#         super(Game,self).__init__(**kwargs)
-#               
-#         self.player = Player(pos =(20,self.height/2))
-#       
-#         
-#         self.add_widget(self.player)
-#         Clock.schedule_interval(self.update,2.0/60.0)
-#         
-#     def update(self, *ignore):
-#         self.player.update()
-        
-#class SimpleWindow(App):
-    #def build(self):
-        #return Game(size = [1600*.35,900*.35])
-    
-#if __name__ == '__main__':
-    #SimpleWindow().run()
