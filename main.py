@@ -19,7 +19,10 @@ class Game(Widget):
         super(Game, self).__init__()
         self.platform = Platform(source = "assets/platform/platform1.png")
         self.background = Background(source = "assets/background/meadow.png")
-        self.player = Player(pos = (20,self.platform.height/2))
+
+        self.player = Player(pos = (20,self.platform.height/2-5))
+
+      
         self.obstacles = Obstacles(source = "assets/obstacles/box1.jpg")
         self.size = [1600 * .25, 900 * .25]
         
