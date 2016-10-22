@@ -1,0 +1,76 @@
+﻿Merge remote-tracking branch 'origin/master'
+
+# Conflicts:
+#	__pycache__/background.cpython-34.pyc
+#	__pycache__/platform.cpython-34.pyc
+#	__pycache__/sprite.cpython-34.pyc
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 1 and 2 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	new file:   __pycache__/player.cpython-34.pyc
+#	new file:   assets/player_running/jump/jump0.gif
+#	new file:   assets/player_running/jump/jump1.gif
+#	new file:   assets/player_running/jump/jump2.gif
+#	new file:   assets/player_running/jump/jump3.gif
+#	new file:   assets/player_running/jump/jump4.gif
+#	new file:   assets/player_running/jump/jump5.gif
+#	new file:   assets/player_running/jump/jump6.gif
+#	new file:   assets/player_running/resized50/running0t.gif
+#	new file:   assets/player_running/resized50/running1t.gif
+#	new file:   assets/player_running/resized50/running2t.gif
+#	new file:   assets/player_running/resized50/running3t.gif
+#	new file:   assets/player_running/resized50/running4t.gif
+#	new file:   assets/player_running/resized50/running5t.gif
+#	new file:   assets/player_running/resized50/running6t.gif
+#	new file:   assets/player_running/resized50/running7t.gif
+#	new file:   assets/player_running/resized50/running8t.gif
+#	new file:   assets/player_running/resized50/running9t.gif
+#	new file:   assets/player_running/resized75/running0t.gif
+#	new file:   assets/player_running/resized75/running1t.gif
+#	new file:   assets/player_running/resized75/running2t.gif
+#	new file:   assets/player_running/resized75/running3t.gif
+#	new file:   assets/player_running/resized75/running4t.gif
+#	new file:   assets/player_running/resized75/running5t.gif
+#	new file:   assets/player_running/resized75/running6t.gif
+#	new file:   assets/player_running/resized75/running7t.gif
+#	new file:   assets/player_running/resized75/running8t.gif
+#	new file:   assets/player_running/resized75/running9t.gif
+#	deleted:    assets/player_running/running0.gif
+#	new file:   assets/player_running/running0t.gif
+#	deleted:    assets/player_running/running1.gif
+#	new file:   assets/player_running/running1t.gif
+#	deleted:    assets/player_running/running2.gif
+#	new file:   assets/player_running/running2t.gif
+#	deleted:    assets/player_running/running3.gif
+#	new file:   assets/player_running/running3t.gif
+#	deleted:    assets/player_running/running4.gif
+#	new file:   assets/player_running/running4t.gif
+#	deleted:    assets/player_running/running5.gif
+#	new file:   assets/player_running/running5t.gif
+#	deleted:    assets/player_running/running6.gif
+#	new file:   assets/player_running/running6t.gif
+#	deleted:    assets/player_running/running7.gif
+#	new file:   assets/player_running/running7t.gif
+#	deleted:    assets/player_running/running8.gif
+#	new file:   assets/player_running/running8t.gif
+#	deleted:    assets/player_running/running9.gif
+#	new file:   assets/player_running/running9t.gif
+#	modified:   main.py
+#	modified:   platform.py
+#	new file:   player.py
+#
+
