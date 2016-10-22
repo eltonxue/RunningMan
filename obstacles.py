@@ -8,7 +8,6 @@ Created on Oct 22, 2016
 from kivy.uix.widget import Widget
 
 from sprite import Sprite
-from random import randint
 
 class Obstacles(Widget):
     def __init__(self, source):
@@ -22,6 +21,7 @@ class Obstacles(Widget):
         self.add_widget(self.image_dupe2)
         self.image_dupe3 = Sprite(source = source, x = self.width * 76, y = 50)
         self.add_widget(self.image_dupe3)
+
         
     def update(self):
         self.image.x -= 4
