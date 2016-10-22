@@ -14,7 +14,7 @@ class Game(Widget):
     def __init__(self):
         super(Game, self).__init__()
         self.platform = Platform(source = "assets/platform/platform1.png")
-        self.background = Background(source = "assets/background/ocean.png")
+        self.background = Background(source = "assets/background/grass.jpg")
         self.size = [1600 * .25, 900 * .25]
         
         
