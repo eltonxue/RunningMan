@@ -13,7 +13,7 @@ class Game(Widget):
     def __init__(self):
         super(Game, self).__init__()
         self.platform = Platform(source = "assets/platform/platform1.png")
-        self.size = [1600 * .35, 900 * .35]
+        self.size = [1600 * .20, 900 * .20]
         
         self.add_widget(self.platform)
         Clock.schedule_interval(self.update, 1.0/60.0)
