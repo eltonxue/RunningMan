@@ -16,6 +16,28 @@ from invis_player import InvisPlayer
 
 from obstacles import Obstacles
 from invis_obstacles import InvisObstacles
+
+from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
+from kivy.lang import Builder
+
+
+class StartScreen(Screen):
+    pass
+
+class GameScreen(Screen):
+    def __init__(self, **kwargs):
+        super(GameScreen, self).__init__(**kwargs)
+        self.game = Game()
+        self.add_widget(self.game)
+
+class SettingsScreen(Screen):
+    pass
+
+class CreditsScreen(Screen):
+    pass
+
+class ScreenManagement(ScreenManager):
+    pass
         
         
 class Game(Widget):
@@ -71,12 +93,12 @@ class Game(Widget):
     def _game_over(self):
         return
     
+presentation = Builder.load_file("main.kv") 
         
 class RunningMan(App):
     def build(self):
-        game = Game()
-        Window.size = game.size
-        return game
+        Window.size = [1600 * .25, 900 * .25]
+        return presentation
     
     def update(self, *ignore):
         self.platform.update()

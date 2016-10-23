@@ -1,5 +1,5 @@
+# File name: main.py
 #: import FadeTransition kivy.uix.screenmanager.FadeTransition
-#: import RunningMan main.RunningMan
 
 ScreenManagement:
 	transition: FadeTransition()
@@ -7,10 +7,8 @@ ScreenManagement:
 	SettingsScreen:
 	CreditsScreen:
 	GameScreen:
-
 	
 <StartScreen>:
-	name: "main"
 	
 	FloatLayout:
 
@@ -36,7 +34,7 @@ ScreenManagement:
 			color: 0,200,237,1
 			text: "Settings"
 			font_size: 25
-			font_name: "Arial"
+			font_name: "Amatic-Bold"
 			size_hint: 0.1, 0.1
 			on_release:	app.root.current = "settings"
 			pos_hint: {"top": 0.45}
@@ -45,10 +43,10 @@ ScreenManagement:
 		Button:
 			text: "Play"
 			font_size: 35
-			font_name: "Arial"
+			font_name: "Amatic-Bold"
 			color: 0,200,237,1
 			size_hint: 0.1, 0.1
-			on_release: app.root.run_game()
+			on_release: app.root.current = "game"
 			pos_hint: {"top": 0.55}
 			background_color: 255,255,255,0.3
 			
@@ -56,7 +54,7 @@ ScreenManagement:
 			color: 0,200,237,1
 			text: "Credits"
 			font_size: 25
-			font_name: "Arial"
+			font_name: "Amatic-Bold"
 			size_hint: 0.1, 0.1
 			on_release: app.root.current = "settings"
 			pos_hint: {"top": 0.45}
@@ -70,7 +68,7 @@ ScreenManagement:
 			color: 0,200,237,1
 			text: "Back"
 			font_size: 30
-			font_name: "Arial"
+			font_name: "Amatic-Bold"
 			size_hint: 0.1, 0.1
 			on_release: app.root.current = "main"
 			pos_hint: {"right": 1, "top": 1} 
@@ -82,8 +80,3 @@ ScreenManagement:
 	name: "game"
 	
 	
-	
-	
-
-		
-		
