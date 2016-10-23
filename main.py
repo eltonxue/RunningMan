@@ -20,18 +20,10 @@ from kivy.lang import Builder
 from kivy.properties import StringProperty
 
 
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-=======
 from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
 
 
-
-=======
->>>>>>> origin/master
->>>>>>> origin/master
 class StartScreen(Screen):
     pass
 
@@ -42,7 +34,7 @@ class GameScreen(Screen):
         self.add_widget(self.game)
 
 class SettingsScreen(Screen):
-<<<<<<< HEAD
+
 #     def __init__(self):
 #         super(SettingsScreen, self).__init__()
 #          
@@ -67,19 +59,16 @@ class SettingsScreen(Screen):
     music_on_off = "Music: ON"
      
     def music_toggle(self):
-=======
+        
     music_on_off = StringProperty("Music: ON")
     soundfx_on_off = StringProperty("Sound FX: ON")
     
     def toggle_music(self):
->>>>>>> origin/master
+
         if self.music_on_off == "Music: ON":
             self.music_on_off = "Music: OFF"
         else:
             self.music_on_off = "Music: ON"
-<<<<<<< HEAD
-#         
-=======
     
     def toggle_soundfx(self):
         if self.soundfx_on_off == "Sound FX: ON":
@@ -87,7 +76,7 @@ class SettingsScreen(Screen):
         else:
             self.soundfx_on_off = "Sound FX: ON"
     pass
->>>>>>> origin/master
+
 
 class CreditsScreen(Screen):
     def __init__(self, **kwargs):
