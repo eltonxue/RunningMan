@@ -86,6 +86,7 @@ class Game(Widget):
         self.add_widget(self.score_board)
         
         self.start_game = False
+        self.game_over = False
         
         Clock.schedule_interval(self.update, 1.0/60.0)
     
@@ -93,8 +94,7 @@ class Game(Widget):
         self.start_game = True
     
     def update(self, *ignores):
-        if self._check_hit():
-            self.player.trigger_death()
+        if self.game_over == True:
             self.bind(on_touch_down = self._on_touch_down)
             return
             
@@ -106,6 +106,10 @@ class Game(Widget):
             self.background.update()
             self.obstacles.update()
             self.invis_obstacles.update()
+            
+            if self._check_hit():
+                self.player.trigger_death()
+                self.game_over = True
         
             self.score_board.text = str(self.obstacles.score)
         
@@ -122,7 +126,8 @@ class Game(Widget):
     def _on_touch_down(self,*ignore):
         parent = self.parent
         parent.remove_widget(self)
-        parent.add_widget(StartScreen())
+        parent.parent.switch_to(StartScreen())
+        parent.add_widget(Game())
     
 presentation = Builder.load_file("main.kv") 
 
