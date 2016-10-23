@@ -1,4 +1,3 @@
-
 from kivy.app import App
 
 # kivy.require("1.9.1")
@@ -13,13 +12,26 @@ from background import Background
 from player import Player
 from invis_player import InvisPlayer
 
-
 from obstacles import Obstacles
 from invis_obstacles import InvisObstacles
 
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
+from kivy.properties import StringProperty
 
+
+<<<<<<< HEAD
+
+<<<<<<< HEAD
+=======
+from kivy.uix.button import Button
+from kivy.uix.boxlayout import BoxLayout
+
+
+
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
 class StartScreen(Screen):
     pass
 
@@ -30,6 +42,7 @@ class GameScreen(Screen):
         self.add_widget(self.game)
 
 class SettingsScreen(Screen):
+<<<<<<< HEAD
 #     def __init__(self):
 #         super(SettingsScreen, self).__init__()
 #          
@@ -54,18 +67,40 @@ class SettingsScreen(Screen):
     music_on_off = "Music: ON"
      
     def music_toggle(self):
+=======
+    music_on_off = StringProperty("Music: ON")
+    soundfx_on_off = StringProperty("Sound FX: ON")
+    
+    def toggle_music(self):
+>>>>>>> origin/master
         if self.music_on_off == "Music: ON":
             self.music_on_off = "Music: OFF"
         else:
             self.music_on_off = "Music: ON"
+<<<<<<< HEAD
 #         
+=======
+    
+    def toggle_soundfx(self):
+        if self.soundfx_on_off == "Sound FX: ON":
+            self.soundfx_on_off = "Sound FX: OFF"
+        else:
+            self.soundfx_on_off = "Sound FX: ON"
+    pass
+>>>>>>> origin/master
 
 class CreditsScreen(Screen):
+    def __init__(self, **kwargs):
+        super(CreditsScreen, self).__init__(**kwargs)
+        self.add_widget(Label())
+
+class GameOverScreen(Screen):
     pass
 
 class ScreenManagement(ScreenManager):
     pass
-        
+
+       
         
 class Game(Widget):
     def __init__(self):
@@ -97,25 +132,33 @@ class Game(Widget):
         self.add_widget(self.score_board)
         
         self.start_game = False
+        self.game_over = False
         
         Clock.schedule_interval(self.update, 1.0/60.0)
     
     def on_touch_up(self,touch):
         self.start_game = True
-        
+    
     def update(self, *ignores):
-        if self._check_hit():
-            self.player.trigger_death()
-            print("Game Over!")
+        
+        if self.game_over == True:
+            self.bind(on_touch_down = self._on_touch_down)
             return
+            
         
         if self.start_game == True:
+            
             self.player.update()
             self.invis_player.update()
             self.platform.update()
             self.background.update()
             self.obstacles.update()
             self.invis_obstacles.update()
+            
+            if self._check_hit():
+                self.player.trigger_death()
+                self.start_game == False
+                self.game_over = True
             
             self.score_board.text = str(self.obstacles.score)
             
@@ -135,7 +178,21 @@ class Game(Widget):
     def _game_over(self):
         return
     
+    def _on_touch_down(self,*ignore):
+        parent = self.parent
+        parent.remove_widget(self)
+        parent.parent.switch_to(StartScreen())
+        parent.add_widget(Game())
+        
+        
+        
+    
+<<<<<<< HEAD
+presentation = Builder.load_file("main.kv")  
+=======
 presentation = Builder.load_file("main.kv") 
+
+>>>>>>> origin/master
         
 class RunningMan(App):
     def build(self):

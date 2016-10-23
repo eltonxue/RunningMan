@@ -3,10 +3,11 @@ from sprite import Sprite
 from kivy.core.audio import SoundLoader
 
 sfx_jump = SoundLoader.load('assets/sound_effects/jump11.wav')
+sfx_fall = SoundLoader.load('assets/sound_effects/fall.wav')
 running_anim = {x:'assets/player_running/resized75/running{}t.gif'.format(str(x))   for x in range(0,10)}
 jump_anim = {x:'assets/player_running/jump/jump{}.gif'.format(str(x))   for x in range(0,7)}
 backflip_anim = {x:'assets/player_running/backflipt/backflip{}.png'.format(str(x))   for x in range(0,19)}  
-death_anim = {x:'assets/player_running/deatht/death{}.png'.format(str(x))   for x in range(0,10)}  
+death_anim = {x:'assets/player_running/death2/death{}.png'.format(str(x))   for x in range(0,21)}  
       
 class Player(Sprite):
     def __init__(self,pos):
@@ -68,5 +69,7 @@ class Player(Sprite):
             self.source = running_anim[self._run_count] 
     
     def trigger_death(self):
-        for frame in range(len(death_anim)):
-            self.source = death_anim[frame]
+        sfx_fall.play()
+        for x in range(len(death_anim)):
+            self.source = death_anim[x]
+        
