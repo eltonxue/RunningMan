@@ -20,7 +20,6 @@ from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 from kivy.lang import Builder
 from kivy.properties import StringProperty
 
-
 class StartScreen(Screen):
     pass
 
@@ -39,13 +38,12 @@ class SettingsScreen(Screen):
             self.music_on_off = "Music: OFF"
         else:
             self.music_on_off = "Music: ON"
-    
+
     def toggle_soundfx(self):
         if self.soundfx_on_off == "Sound FX: ON":
             self.soundfx_on_off = "Sound FX: OFF"
         else:
             self.soundfx_on_off = "Sound FX: ON"
-    pass
 
 class CreditsScreen(Screen):
     def __init__(self, **kwargs):
@@ -127,10 +125,9 @@ class Game(Widget):
         parent = self.parent
         parent.remove_widget(self)
         parent.parent.switch_to(StartScreen())
-        parent.add_widget(Game())
-    
-presentation = Builder.load_file("main.kv") 
+        parent.add_widget(Game())    
 
+presentation = Builder.load_file("main.kv")  
         
 class RunningMan(App):
     def build(self):
