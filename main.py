@@ -19,7 +19,7 @@ class Game(Widget):
         super(Game, self).__init__()
         self.platform = Platform(source = "assets/platform/platform1.png")
         self.background = Background(source = "assets/background/meadow.png")
-
+        
         self.player = Player(pos = (20,self.platform.height/2-5))
 
       

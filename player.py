@@ -7,7 +7,8 @@ from sprite import Sprite
 
 running_anim = {x:'assets/player_running/resized75/running{}t.gif'.format(str(x))   for x in range(0,10)}
 jump_anim = {x:'assets/player_running/jump/jump{}.gif'.format(str(x))   for x in range(0,7)}
-        
+backflip_anim = {x:'assets/player_running/backflipt/backflip{}.png'.format(str(x))   for x in range(0,19)}  
+      
 class Player(Sprite):
     def __init__(self,pos):
         
@@ -17,6 +18,8 @@ class Player(Sprite):
         self._velocity_y = 0
         self._run_count = 0
         self._jumped_count = 0
+        self._backflip_count = 0
+        
         self._jumped = False
     
     
@@ -35,9 +38,13 @@ class Player(Sprite):
             self._velocity_y += self._gravity
             self.y += self._velocity_y
             
-            self.source = jump_anim[self._jumped_count]
+            if self._backflip_count < len(backflip_anim) - 1 :
+                self.source = backflip_anim[self._backflip_count]
+                self._backflip_count += 1
             
-            self._jumped_count +=1
+            elif self._backflip_count >= len(backflip_anim) -1:
+                self.source = jump_anim[self._jumped_count]
+                self._jumped_count +=1
             
             if self._jumped_count > len(jump_anim)-1:
                 self._jumped_count = 0
@@ -46,6 +53,7 @@ class Player(Sprite):
             
             self._jumped = False
             self.y = self._init_pos
+            self._backflip_count = 0
         
         if self._jumped == False:
                
