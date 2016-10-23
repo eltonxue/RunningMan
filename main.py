@@ -23,6 +23,7 @@ from kivy.lang import Builder
 
 from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
+from kivy.properties import StringProperty
 
 class StartScreen(Screen):
     pass
@@ -34,38 +35,25 @@ class GameScreen(Screen):
         self.add_widget(self.game)
 
 class SettingsScreen(Screen):
-#     def __init__(self):
-#         super(SettingsScreen, self).__init__()
-#          
-#         self.music_label = Label(text = "Music:")
-#         self.music_button = Button(text = "ON") 
-#          
-#     def build(self):
-#         self.music_button.bind(on_press = self.clk)
-#         layout = BoxLayout()
-#         layout.orientation = 'vertical'
-#         layout.add_widget(self.music_button)
-#         layout.add_widget(self.music_label)
-#          
-#         return layout
-#      
-#     def clk(self, obj):
-#         print("changed")
-#         self.label_button.text = "OFF"
-#     def __init__(self, **kwargs):
-#         super(SettingsScreen, self).__init__(**kwargs)
-#         self.music_on_off = "Music: ON"
-    music_on_off = "Music: ON"
-     
-    def music_toggle(self):
+    music_on_off = StringProperty("Music: ON")
+    soundfx_on_off = StringProperty("Sound FX: ON")
+    
+    def toggle_music(self):
         if self.music_on_off == "Music: ON":
             self.music_on_off = "Music: OFF"
         else:
             self.music_on_off = "Music: ON"
-#         
+    
+    def toggle_soundfx(self):
+        if self.soundfx_on_off == "Sound FX: ON":
+            self.soundfx_on_off = "Sound FX: OFF"
+        else:
+            self.soundfx_on_off = "Sound FX: ON"
 
 class CreditsScreen(Screen):
-    pass
+    def __init__(self, **kwargs):
+        super(CreditsScreen, self).__init__(**kwargs)
+        self.add_widget(Label())
 
 class ScreenManagement(ScreenManager):
     pass
@@ -134,6 +122,7 @@ class Game(Widget):
         return
     
 presentation = Builder.load_file("main.kv") 
+
         
 class RunningMan(App):
     def build(self):
