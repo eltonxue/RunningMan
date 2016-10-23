@@ -34,10 +34,22 @@ class Game(Widget):
         Clock.schedule_interval(self.update, 1.0/60.0)
         
     def update(self, *ignores):
+        if self._check_hit():
+            print("Game Over 1")
+            return
+            
+        
         self.player.update()
         self.platform.update()
         self.background.update()
         self.obstacles.update()
+        
+    def _check_hit(self):
+        condition1 = self.player.collide_widget(self.obstacles.image)
+        condition2 = self.player.collide_widget(self.obstacles.image_dupe) 
+        condition3 = self.player.collide_widget(self.obstacles.image_dupe2)
+        condition4 = self.player.collide_widget(self.obstacles.image_dupe3) 
+        return condition1 or condition2 or condition3 or condition4
         
         
         
@@ -51,8 +63,8 @@ class RunningMan(App):
         self.platform.update()
         self.background.update()
         self.obstacles.update()
-
-
+        self.invis_obstacles.update()
+            
 if __name__ == "__main__":
     RunningMan().run()
     
