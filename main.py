@@ -121,8 +121,11 @@ class Game(Widget):
             self.invis_obstacles.update()
             
             self.score_board.text = str(self.obstacles.score)
-            if type(self.obstacles.score/10) == int:
-                pass
+            
+            if self.obstacles.score != 0 and self.obstacles.score % 10 == 0:
+                self.platform.change += .002
+                self.obstacles.change += .002
+                self.invis_obstacles.change += .002
                 
         
     def _check_hit(self):
