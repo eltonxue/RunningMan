@@ -6,7 +6,6 @@ from kivy.uix.widget import Widget
 from kivy.clock import Clock
 from kivy.core.window import Window
 from kivy.uix.label import Label
-from kivy.uix.anchorlayout import AnchorLayout
 
 from platform import Platform
 from background import Background
@@ -16,7 +15,7 @@ from invis_player import InvisPlayer
 from obstacles import Obstacles
 from invis_obstacles import InvisObstacles
 
-from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
+from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
 from kivy.properties import StringProperty
 
