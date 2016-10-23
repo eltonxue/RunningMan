@@ -20,15 +20,11 @@ from kivy.lang import Builder
 from kivy.properties import StringProperty
 
 
-<<<<<<< HEAD
-
 from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
 
 
 
-=======
->>>>>>> origin/master
 class StartScreen(Screen):
     pass
 
@@ -39,44 +35,16 @@ class GameScreen(Screen):
         self.add_widget(self.game)
 
 class SettingsScreen(Screen):
-<<<<<<< HEAD
-#     def __init__(self):
-#         super(SettingsScreen, self).__init__()
-#          
-#         self.music_label = Label(text = "Music:")
-#         self.music_button = Button(text = "ON") 
-#          
-#     def build(self):
-#         self.music_button.bind(on_press = self.clk)
-#         layout = BoxLayout()
-#         layout.orientation = 'vertical'
-#         layout.add_widget(self.music_button)
-#         layout.add_widget(self.music_label)
-#          
-#         return layout
-#      
-#     def clk(self, obj):
-#         print("changed")
-#         self.label_button.text = "OFF"
-#     def __init__(self, **kwargs):
-#         super(SettingsScreen, self).__init__(**kwargs)
-#         self.music_on_off = "Music: ON"
-    music_on_off = "Music: ON"
-     
-    def music_toggle(self):
-=======
     music_on_off = StringProperty("Music: ON")
     soundfx_on_off = StringProperty("Sound FX: ON")
     
     def toggle_music(self):
->>>>>>> origin/master
+
         if self.music_on_off == "Music: ON":
             self.music_on_off = "Music: OFF"
         else:
             self.music_on_off = "Music: ON"
-<<<<<<< HEAD
-#         
-=======
+
     
     def toggle_soundfx(self):
         if self.soundfx_on_off == "Sound FX: ON":
@@ -84,7 +52,7 @@ class SettingsScreen(Screen):
         else:
             self.soundfx_on_off = "Sound FX: ON"
     pass
->>>>>>> origin/master
+
 
 class CreditsScreen(Screen):
     def __init__(self, **kwargs):
@@ -154,7 +122,6 @@ class Game(Widget):
             
             if self._check_hit():
                 self.player.trigger_death()
-                self.start_game == False
                 self.game_over = True
             
             self.score_board.text = str(self.obstacles.score)
@@ -184,12 +151,9 @@ class Game(Widget):
         
         
     
-<<<<<<< HEAD
-presentation = Builder.load_file("main.kv")  
-=======
-presentation = Builder.load_file("main.kv") 
 
->>>>>>> origin/master
+presentation = Builder.load_file("main.kv")  
+
         
 class RunningMan(App):
     def build(self):
