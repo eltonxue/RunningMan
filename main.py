@@ -66,7 +66,12 @@ class Game(Widget):
                                  font_size = 60, center_x = self.width, center_y = self.height * .75)
         self.add_widget(self.score_board)
         
+        self.start_game = True
+        
         Clock.schedule_interval(self.update, 1.0/60.0)
+    
+    #def on_touch_down(self,touch):
+        #self.start_game = True
         
     def update(self, *ignores):
         if self._check_hit():
@@ -74,14 +79,15 @@ class Game(Widget):
             print("Game Over!")
             return
         
-        self.player.update()
-        self.invis_player.update()
-        self.platform.update()
-        self.background.update()
-        self.obstacles.update()
-        self.invis_obstacles.update()
+        if self.start_game == True:
+            self.player.update()
+            self.invis_player.update()
+            self.platform.update()
+            self.background.update()
+            self.obstacles.update()
+            self.invis_obstacles.update()
         
-        self.score_board.text = str(self.obstacles.score)
+            self.score_board.text = str(self.obstacles.score)
         
     def _check_hit(self):
         condition1 = self.invis_player.collide_widget(self.obstacles.image)
