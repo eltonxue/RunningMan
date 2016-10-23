@@ -9,10 +9,15 @@ ScreenManagement:
 	GameScreen:
 	
 <StartScreen>:
+<<<<<<< HEAD
 
 	name: "start"
 	
 
+=======
+	name: "start"
+	
+>>>>>>> origin/master
 	FloatLayout:
 
         AsyncImage:
@@ -35,13 +40,13 @@ ScreenManagement:
 		
 		Button:
 			color: 0,200,237,1
-			text: "Settings"
+			text: ""
 			font_size: 25
 			font_name: "assets/fonts/Amatic-Bold.ttf"
 			size_hint: 0.1, 0.1
 			on_release:	app.root.current = "settings"
 			pos_hint: {"top": 0.45}
-			background_color: 255,255,255,0.3
+			background_color: 255,255,255,0
 			
 		Button:
 			text: "Play"
@@ -55,13 +60,13 @@ ScreenManagement:
 			
 		Button:
 			color: 0,200,237,1
-			text: "Credits"
+			text: ""
 			font_size: 25
 			font_name: "assets/fonts/Amatic-Bold.ttf"
 			size_hint: 0.1, 0.1
-			on_release: app.root.current = "settings"
+			on_release: app.root.current = "credits"
 			pos_hint: {"top": 0.45}
-			background_color: 255,255,255,0.3
+			background_color: 255,255,255,0
 		
 <SettingsScreen>:
 	name: "settings"
@@ -79,6 +84,7 @@ ScreenManagement:
 			
 	BoxLayout:
 		orientation: "vertical"
+<<<<<<< HEAD
 		padding: 20
 		spacing: 50
 		
@@ -96,6 +102,49 @@ ScreenManagement:
 <CreditsScreen>:
 	name: "credits"
 	
+=======
+		padding: 30
+		spacing: 12
+	
+		Button:
+			text: root.music_on_off
+			font_size: 30
+			font_name: "assets/fonts/Amatic-Bold.ttf"
+			color: 0,200,237,1
+			size_hint: 1,1
+			on_release: root.toggle_music()
+			pos_hint: {"top": 0.5}
+			background_color: 255,255,255,0.3
+			
+		Button:
+			text: root.soundfx_on_off
+			font_size: 30
+			font_name: "assets/fonts/Amatic-Bold.ttf"
+			color: 0,200,237,1
+			size_hint: 1,1
+			on_release: root.toggle_soundfx()
+			pos_hint: {"bottom": 0.5}
+			background_color: 255,255,255,0.3
+
+<CreditsScreen>:
+	name: "credits"
+	
+	FloatLayout:	
+		Button:
+			color: 0,200,237,1
+			text: "Back"
+			font_size: 30
+			font_name: "assets/fonts/Amatic-Bold.ttf"
+			size_hint: 0.1, 0.1
+			on_release: app.root.current = "start"
+			pos_hint: {"right": 1, "top": 1} 
+	
+	Label:
+		text: 'Credits\n\nDeveloped by:\nChanun Sumphanphaisal\nElton Xue\nRichmond Rimando\n\nCITRUS HACK 2016'
+		font_size: 22
+		color: 0,200,237,1
+		font_name: "assets/fonts/Amatic-Bold.ttf"
+>>>>>>> origin/master
 		
 <GameScreen>:
 	name: "game"
