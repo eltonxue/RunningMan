@@ -9,6 +9,7 @@ ScreenManagement:
 	GameScreen:
 	
 <StartScreen>:
+	name: "start"
 	
 	FloatLayout:
 
@@ -64,14 +65,31 @@ ScreenManagement:
 	name: "settings"
 	
 	FloatLayout:
+	
 		Button:
 			color: 0,200,237,1
 			text: "Back"
 			font_size: 30
 			font_name: "assets/fonts/Amatic-Bold.ttf"
 			size_hint: 0.1, 0.1
-			on_release: app.root.current = "main"
+			on_release: app.root.current = "start"
 			pos_hint: {"right": 1, "top": 1} 
+			
+	BoxLayout:
+		orientation: "vertical"
+		padding: 20
+		spacing: 50
+		
+		Button:
+			text: root.music_on_off
+			font_size: 35
+			font_name: "assets/fonts/Amatic-Bold.ttf"
+			color: 0,200,237,1
+			size_hint: 0.1, 0.1
+			on_press: root.music_toggle()
+			pos_hint: {"top": 0.55}
+			background_color: 255,255,255,0.3
+
 			
 <CreditsScreen>:
 	name: "credits"

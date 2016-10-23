@@ -21,6 +21,8 @@ from invis_obstacles import InvisObstacles
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 from kivy.lang import Builder
 
+from kivy.uix.button import Button
+from kivy.uix.boxlayout import BoxLayout
 
 class StartScreen(Screen):
     pass
@@ -32,7 +34,35 @@ class GameScreen(Screen):
         self.add_widget(self.game)
 
 class SettingsScreen(Screen):
-    pass
+#     def __init__(self):
+#         super(SettingsScreen, self).__init__()
+#          
+#         self.music_label = Label(text = "Music:")
+#         self.music_button = Button(text = "ON") 
+#          
+#     def build(self):
+#         self.music_button.bind(on_press = self.clk)
+#         layout = BoxLayout()
+#         layout.orientation = 'vertical'
+#         layout.add_widget(self.music_button)
+#         layout.add_widget(self.music_label)
+#          
+#         return layout
+#      
+#     def clk(self, obj):
+#         print("changed")
+#         self.label_button.text = "OFF"
+#     def __init__(self, **kwargs):
+#         super(SettingsScreen, self).__init__(**kwargs)
+#         self.music_on_off = "Music: ON"
+    music_on_off = "Music: ON"
+     
+    def music_toggle(self):
+        if self.music_on_off == "Music: ON":
+            self.music_on_off = "Music: OFF"
+        else:
+            self.music_on_off = "Music: ON"
+#         
 
 class CreditsScreen(Screen):
     pass
