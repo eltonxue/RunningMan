@@ -64,9 +64,9 @@ class Game(Widget):
         self.add_widget(self.invis_obstacles)
     
         self.score_label = Label(text = "Score: ", font_name = 'assets/fonts/Futura Extra Black Condensed BT.ttf', 
-                                 font_size = 30, center_x = 60, center_y = self.platform.height/2 + 5, color = (0.4,0.4,0.4,1))
+                                 font_size = 20, center_x = 50, center_y = self.platform.height/2 + 5, color = (0.0,0.0,0.0,1))
         self.score_board = Label(text = "0", font_name = 'assets/fonts/Futura Extra Black Condensed BT.ttf', 
-                                 font_size = 30, center_x = 120, center_y = self.platform.height/2 + 5)
+                                 font_size = 30, center_x = 100, center_y = self.platform.height/2 + 5)
         self.add_widget(self.score_label)
         self.add_widget(self.score_board)
         
