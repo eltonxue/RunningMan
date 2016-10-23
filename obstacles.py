@@ -17,7 +17,7 @@ class Obstacles(Widget):
         self.image_dupe3 = Sprite(source = source, x = 2000, y = 50)
         self.add_widget(self.image_dupe3)
         
-        self.change = 4
+        self.change = 3
 
         
     def update(self):
