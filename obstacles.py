@@ -1,9 +1,3 @@
-'''
-Created on Oct 22, 2016
-
-@author: EltonXue
-'''
-
 
 from kivy.uix.widget import Widget
 

@@ -1,5 +1,4 @@
 
-
 from kivy.uix.widget import Widget
 
 from sprite import Sprite

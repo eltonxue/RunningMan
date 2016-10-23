@@ -40,16 +40,8 @@ class Game(Widget):
         
     def update(self, *ignores):
         if self._check_hit():
-            print("Game Over 1")
-            print(self.invis_player.size, "<---- Size of Widget")
-            print(self.invis_player.pos, "<---- Position of Widget")
-            print(self.obstacles.image.pos, "<---- Pos of Obstacle 1")
-            print(self.obstacles.image.size, "<---- Size of Obstacle 1")
-            print(self.obstacles.image_dupe.pos, "<---- Pos of Obstacle 2")
-            print(self.obstacles.image_dupe2.pos, "<---- Pos of Obstacle 3")
-            print(self.obstacles.image_dupe3.pos, "<---- Pos of Obstacle 4")
-            
-            return
+            print("Game Over!")
+            return 
         
         self.player.update()
         self.invis_player.update()

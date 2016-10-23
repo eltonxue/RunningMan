@@ -1,20 +1,12 @@
 
-from kivy.uix.image import Image
 from kivy.uix.widget import Widget
-from kivy.graphics import *
 
 
 running_anim = {x:'assets/player_running/resized75/running{}t.gif'.format(str(x))   for x in range(0,10)}
 jump_anim = {x:'assets/player_running/jump/jump{}.gif'.format(str(x))   for x in range(0,7)}
-
-class Sprite(Image):
-    def __init__(self,**kwargs):
-        super(Sprite,self).__init__(**kwargs)
-        self.size = self.texture_size
-        
         
 class InvisPlayer(Widget):
-    def __init__(self,pos):
+    def __init__(self, pos):
         super(InvisPlayer, self).__init__()
         self._pos = pos
         self._init_pos = pos[1]
@@ -40,8 +32,6 @@ class InvisPlayer(Widget):
             self._velocity_y += self._gravity
             self.y += self._velocity_y
             
-            print(self.size)
-            print(self.pos)
             self.source = jump_anim[self._jumped_count]
             
             self._jumped_count +=1
@@ -53,9 +43,6 @@ class InvisPlayer(Widget):
             
             self._jumped = False
             self.y = self._init_pos
-            print(self.size)
-            print(self.pos)
-            print('-------')
         
         if self._jumped == False:
                
