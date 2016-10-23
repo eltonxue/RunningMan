@@ -1,7 +1,8 @@
 
 from sprite import Sprite
+from kivy.core.audio import SoundLoader
 
-
+sfx_jump = SoundLoader.load('assets/sound_effects/jump11.wav')
 running_anim = {x:'assets/player_running/resized75/running{}t.gif'.format(str(x))   for x in range(0,10)}
 jump_anim = {x:'assets/player_running/jump/jump{}.gif'.format(str(x))   for x in range(0,7)}
 backflip_anim = {x:'assets/player_running/backflipt/backflip{}.png'.format(str(x))   for x in range(0,19)}  
@@ -24,7 +25,7 @@ class Player(Sprite):
     def on_touch_down(self, *ignore):
         
         if self._jumped == False:
-
+            sfx_jump.play()
             self._velocity_y = 10
 
             self._velocity_y = 7
