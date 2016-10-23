@@ -7,6 +7,7 @@ from kivy.uix.widget import Widget
 from kivy.clock import Clock
 from kivy.core.window import Window
 from kivy.uix.label import Label
+from kivy.uix.anchorlayout import AnchorLayout
 
 from platform import Platform
 from background import Background
@@ -61,9 +62,12 @@ class Game(Widget):
         self.add_widget(self.invis_player)
         self.add_widget(self.obstacles)
         self.add_widget(self.invis_obstacles)
-        
+    
+        self.score_label = Label(text = "Score: ", font_name = 'assets/fonts/Futura Extra Black Condensed BT.ttf', 
+                                 font_size = 30, center_x = 60, center_y = self.platform.height/2, color = (0,0,0,1))
         self.score_board = Label(text = "0", font_name = 'assets/fonts/Futura Extra Black Condensed BT.ttf', 
-                                 font_size = 60, center_x = self.width, center_y = self.height * .75)
+                                 font_size = 30, center_x = 120, center_y = self.platform.height/2)
+        self.add_widget(self.score_label)
         self.add_widget(self.score_board)
         
         self.start_game = False
