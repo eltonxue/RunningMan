@@ -128,9 +128,9 @@ class Game(Widget):
             self.score_board.text = str(self.obstacles.score)
             
             if self.obstacles.score != 0 and self.obstacles.score % 10 == 0:
-                self.platform.change += .003
-                self.obstacles.change += .003
-                self.invis_obstacles.change += .003
+                self.platform.change += .005
+                self.obstacles.change += .005
+                self.invis_obstacles.change += .005
         
     def _check_hit(self):
         condition1 = self.invis_player.collide_widget(self.obstacles.image)
