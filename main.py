@@ -14,23 +14,19 @@ from invis_player import InvisPlayer
 
 
 from obstacles import Obstacles
+from invis_obstacles import InvisObstacles
         
 class Game(Widget):
     def __init__(self):
         super(Game, self).__init__()
         self.platform = Platform(source = "assets/platform/platform1.png")
         self.background = Background(source = "assets/background/meadow.png")
-<<<<<<< HEAD
 
         self.player = Player(pos = (20, self.platform.height/2 - 5))
         self.invis_player = InvisPlayer(pos = (100, self.platform.height + 20))
-=======
-        
-        self.player = Player(pos = (20,self.platform.height/2-5))
->>>>>>> origin/master
-
       
         self.obstacles = Obstacles(source = "assets/obstacles/box1.jpg")
+        self.invis_obstacles = InvisObstacles(source = "assets/obstacles/box1.jpg")
         self.size = [1600 * .25, 900 * .25]
         
         
@@ -39,6 +35,7 @@ class Game(Widget):
         self.add_widget(self.player)
         self.add_widget(self.invis_player)
         self.add_widget(self.obstacles)
+        self.add_widget(self.invis_obstacles)
         Clock.schedule_interval(self.update, 1.0/60.0)
         
     def update(self, *ignores):
@@ -46,10 +43,11 @@ class Game(Widget):
             print("Game Over 1")
             print(self.invis_player.size, "<---- Size of Widget")
             print(self.invis_player.pos, "<---- Position of Widget")
-            print(self.obstacles.image.pos)
-            print(self.obstacles.image_dupe.pos)
-            print(self.obstacles.image_dupe2.pos)
-            print(self.obstacles.image_dupe3.pos)
+            print(self.obstacles.image.pos, "<---- Pos of Obstacle 1")
+            print(self.obstacles.image.size, "<---- Size of Obstacle 1")
+            print(self.obstacles.image_dupe.pos, "<---- Pos of Obstacle 2")
+            print(self.obstacles.image_dupe2.pos, "<---- Pos of Obstacle 3")
+            print(self.obstacles.image_dupe3.pos, "<---- Pos of Obstacle 4")
             
             return
         
@@ -58,6 +56,7 @@ class Game(Widget):
         self.platform.update()
         self.background.update()
         self.obstacles.update()
+        self.invis_obstacles.update()
         
     def _check_hit(self):
         condition1 = self.invis_player.collide_widget(self.obstacles.image)
