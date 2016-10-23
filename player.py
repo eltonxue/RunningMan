@@ -23,11 +23,11 @@ class Player(Sprite):
     def on_touch_down(self, *ignore):
         
         if self._jumped == False:
-<<<<<<< HEAD
+
             self._velocity_y = 10
-=======
+
             self._velocity_y = 7
->>>>>>> origin/master
+
             self._jumped = True
         else:
             pass

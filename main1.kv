@@ -1,7 +1,14 @@
 # File name: main1.py
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
 
+ScreenManagement:
+	transition: FadeTransition()
+	StartScreen:
+	SettingsScreen:
+	CreditsScreen:
+	GameScreen:
 	
-<Menu>:
+<StartScreen>:
 	
 	FloatLayout:
 
@@ -18,7 +25,58 @@
 			pos_hint: {"top": 1.05, "right": 0.86}
 			size_hint: 0.7, 0.7
 	
-
-
+	BoxLayout:
+		orientation: "horizontal"
+		padding: 20
+		spacing: 50
 		
+		Button:
+			color: 0,200,237,1
+			text: "Settings"
+			font_size: 25
+			font_name: "Amatic-Bold"
+			size_hint: 0.1, 0.1
+			on_release:	app.root.current = "settings"
+			pos_hint: {"top": 0.45}
+			background_color: 255,255,255,0.3
+			
+		Button:
+			text: "Play"
+			font_size: 35
+			font_name: "Amatic-Bold"
+			color: 0,200,237,1
+			size_hint: 0.1, 0.1
+			on_release: app.root.current = "game"
+			pos_hint: {"top": 0.55}
+			background_color: 255,255,255,0.3
+			
+		Button:
+			color: 0,200,237,1
+			text: "Credits"
+			font_size: 25
+			font_name: "Amatic-Bold"
+			size_hint: 0.1, 0.1
+			on_release: app.root.current = "settings"
+			pos_hint: {"top": 0.45}
+			background_color: 255,255,255,0.3
 		
+<SettingsScreen>:
+	name: "settings"
+	
+	FloatLayout:
+		Button:
+			color: 0,200,237,1
+			text: "Back"
+			font_size: 30
+			font_name: "Amatic-Bold"
+			size_hint: 0.1, 0.1
+			on_release: app.root.current = "main"
+			pos_hint: {"right": 1, "top": 1} 
+			
+<CreditsScreen>:
+	name: "credits"
+		
+<GameScreen>:
+	name: "game"
+	
+	
