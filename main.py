@@ -40,6 +40,7 @@ class Game(Widget):
         
     def update(self, *ignores):
         if self._check_hit():
+            self.player.trigger_death()
             print("Game Over!")
             return 
         
