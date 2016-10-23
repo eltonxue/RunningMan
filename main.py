@@ -22,7 +22,7 @@ from kivy.lang import Builder
 from kivy.properties import StringProperty
 
 background_music = SoundLoader.load('assets/music/sarudedandstorm.mp3')
-
+background_music.volume = 0.5
 class StartScreen(Screen):
     pass
 
