@@ -7,7 +7,6 @@ from kivy.uix.widget import Widget
 from kivy.clock import Clock
 from kivy.core.window import Window
 from kivy.uix.label import Label
-from kivy.uix.anchorlayout import AnchorLayout
 
 from platform import Platform
 from background import Background
@@ -18,7 +17,7 @@ from invis_player import InvisPlayer
 from obstacles import Obstacles
 from invis_obstacles import InvisObstacles
 
-from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
+from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
 
 from kivy.uix.button import Button
@@ -120,8 +119,11 @@ class Game(Widget):
             self.background.update()
             self.obstacles.update()
             self.invis_obstacles.update()
-        
+            
             self.score_board.text = str(self.obstacles.score)
+            if type(self.obstacles.score/10) == int:
+                pass
+                
         
     def _check_hit(self):
         condition1 = self.invis_player.collide_widget(self.obstacles.image)
