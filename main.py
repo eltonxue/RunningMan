@@ -21,7 +21,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 from kivy.lang import Builder
 from kivy.properties import StringProperty
 
-background_music = SoundLoader.load('assets/music/rollinat5.mp3')
+background_music = SoundLoader.load('assets/music/sarudedandstorm.mp3')
 
 class StartScreen(Screen):
     pass
