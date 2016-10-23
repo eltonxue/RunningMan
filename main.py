@@ -7,7 +7,6 @@ from kivy.uix.widget import Widget
 from kivy.clock import Clock
 from kivy.core.window import Window
 from kivy.uix.label import Label
-from kivy.uix.anchorlayout import AnchorLayout
 
 from platform import Platform
 from background import Background
@@ -18,13 +17,18 @@ from invis_player import InvisPlayer
 from obstacles import Obstacles
 from invis_obstacles import InvisObstacles
 
-from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
+from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
 
-sm = ScreenManager()
+
+from kivy.uix.button import Button
+from kivy.uix.boxlayout import BoxLayout
+
+
+
 class StartScreen(Screen):
     pass
-start_screen = StartScreen()
+
 class GameScreen(Screen):
     def __init__(self, **kwargs):
         super(GameScreen, self).__init__(**kwargs)
@@ -32,14 +36,46 @@ class GameScreen(Screen):
         self.add_widget(self.game)
 
 class SettingsScreen(Screen):
-    pass
+#     def __init__(self):
+#         super(SettingsScreen, self).__init__()
+#          
+#         self.music_label = Label(text = "Music:")
+#         self.music_button = Button(text = "ON") 
+#          
+#     def build(self):
+#         self.music_button.bind(on_press = self.clk)
+#         layout = BoxLayout()
+#         layout.orientation = 'vertical'
+#         layout.add_widget(self.music_button)
+#         layout.add_widget(self.music_label)
+#          
+#         return layout
+#      
+#     def clk(self, obj):
+#         print("changed")
+#         self.label_button.text = "OFF"
+#     def __init__(self, **kwargs):
+#         super(SettingsScreen, self).__init__(**kwargs)
+#         self.music_on_off = "Music: ON"
+    music_on_off = "Music: ON"
+     
+    def music_toggle(self):
+        if self.music_on_off == "Music: ON":
+            self.music_on_off = "Music: OFF"
+        else:
+            self.music_on_off = "Music: ON"
+#         
 
 class CreditsScreen(Screen):
     pass
 
+class GameOverScreen(Screen):
+    pass
+
 class ScreenManagement(ScreenManager):
     pass
-        
+
+       
         
 class Game(Widget):
     def __init__(self):
@@ -71,6 +107,7 @@ class Game(Widget):
         self.add_widget(self.score_board)
         
         self.start_game = False
+        self.game_over = False
         
         Clock.schedule_interval(self.update, 1.0/60.0)
     
@@ -78,21 +115,33 @@ class Game(Widget):
         self.start_game = True
     
     def update(self, *ignores):
-        if self._check_hit():
-            self.player.trigger_death()
+        
+        if self.game_over == True:
             self.bind(on_touch_down = self._on_touch_down)
             return
             
         
         if self.start_game == True:
+            
             self.player.update()
             self.invis_player.update()
             self.platform.update()
             self.background.update()
             self.obstacles.update()
             self.invis_obstacles.update()
-        
+            
+            if self._check_hit():
+                self.player.trigger_death()
+                self.start_game == False
+                self.game_over = True
+            
             self.score_board.text = str(self.obstacles.score)
+            
+            if self.obstacles.score != 0 and self.obstacles.score % 10 == 0:
+                self.platform.change += .002
+                self.obstacles.change += .002
+                self.invis_obstacles.change += .002
+                
         
     def _check_hit(self):
         condition1 = self.invis_player.collide_widget(self.obstacles.image)
@@ -107,9 +156,13 @@ class Game(Widget):
     def _on_touch_down(self,*ignore):
         parent = self.parent
         parent.remove_widget(self)
-        parent.add_widget(StartScreen())
+        parent.parent.switch_to(StartScreen())
+        parent.add_widget(Game())
+        
+        
+        
     
-presentation = Builder.load_file("main.kv") 
+presentation = Builder.load_file("main.kv")  
         
 class RunningMan(App):
     def build(self):
