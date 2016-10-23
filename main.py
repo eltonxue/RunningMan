@@ -88,8 +88,10 @@ class Game(Widget):
                                  font_size = 20, center_x = 50, center_y = self.platform.height/2 + 5, color = (0.0,0.0,0.0,1))
         self.score_board = Label(text = "0", font_name = 'assets/fonts/Futura Extra Black Condensed BT.ttf', 
                                  font_size = 30, center_x = 100, center_y = self.platform.height/2 + 5)
+        
         self.add_widget(self.score_label)
         self.add_widget(self.score_board)
+        
         
         self.start_game = False
         self.game_over = False
@@ -101,6 +103,12 @@ class Game(Widget):
     
     def update(self, *ignores):
         if self.game_over == True:
+            self.game_over_mes = Label(text = "Game Over" + '\n' + str(self.obstacles.score), 
+                                   font_name = 'assets/fonts/Futura Extra Black Condensed BT.ttf', 
+                                 font_size = 40, center_x = (1600 * .25)/2, center_y = (900 * .25)/2, 
+                                 halign = 'center',color = (1,1,1,1))
+           
+            self.add_widget(self.game_over_mes)
             self.bind(on_touch_down = self._on_touch_down)
             return
             
@@ -136,6 +144,7 @@ class Game(Widget):
     
     def _on_touch_down(self,*ignore):
         parent = self.parent
+        
         parent.remove_widget(self)
         parent.parent.switch_to(StartScreen())
         parent.add_widget(Game())    
