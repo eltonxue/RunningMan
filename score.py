@@ -3,7 +3,7 @@ from kivy.app import App
 from kivy.uix.label import Label
 
 
-class RunningMan(App):
+class Score(Label):
     def build(self):
         
         return Label(font_name = 'assets/fonts/Futura Extra Black Condensed BT.ttf', text = "14", font_size = 50,
