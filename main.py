@@ -16,15 +16,6 @@ from invis_player import InvisPlayer
 
 from obstacles import Obstacles
 from invis_obstacles import InvisObstacles
-
-
-class Score(Label):
-    def __init__(self, score, font_name, font_size):
-        self.score = score
-        self.score_board = Label(text = score, font_name = font_name, font_size = font_size)
-        
-    def update(self):
-        pass
         
         
 class Game(Widget):
@@ -50,7 +41,7 @@ class Game(Widget):
         self.add_widget(self.invis_obstacles)
         
         self.score_board = Label(text = "0", font_name = 'assets/fonts/Futura Extra Black Condensed BT.ttf', 
-                                 font_size = 60, center_x = self.width, center_y = self.height * 1.5, color = (.5, 0, .5))
+                                 font_size = 60, center_x = self.width, center_y = self.height * 1.5)
         self.add_widget(self.score_board)
         
         Clock.schedule_interval(self.update, 1.0/60.0)
