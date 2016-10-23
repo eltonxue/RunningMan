@@ -16,24 +16,26 @@ class Obstacles(Widget):
         self.add_widget(self.image_dupe2)
         self.image_dupe3 = Sprite(source = source, x = 2000, y = 50)
         self.add_widget(self.image_dupe3)
+        
+        self.change = 4
 
         
     def update(self):
-        self.image.x -= 4
-        self.image_dupe.x -= 4
-        self.image_dupe2.x -= 4
-        self.image_dupe3.x -= 4
+        self.image.x -= self.change
+        self.image_dupe.x -= self.change
+        self.image_dupe2.x -= self.change
+        self.image_dupe3.x -= self.change
         
         if self.image.right <= 60:
-            self.image.x = 120 * 10
+            self.image.x = 1200
             self.score += 1
         if self.image_dupe.right <= 60:
-            self.image_dupe.x = 140 * 10
+            self.image_dupe.x = 1400
             self.score += 1
         if self.image_dupe2.right <= 60:
-            self.image_dupe2.x = 180 * 10
+            self.image_dupe2.x = 1800
             self.score += 1
         if self.image_dupe3.right <= 60:
-            self.image_dupe3.x = 200 * 10
+            self.image_dupe3.x = 2000
             self.score += 1
         
