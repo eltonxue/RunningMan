@@ -63,7 +63,7 @@ class Game(Widget):
         self.add_widget(self.invis_obstacles)
         
         self.score_board = Label(text = "0", font_name = 'assets/fonts/Futura Extra Black Condensed BT.ttf', 
-                                 font_size = 60, center_x = self.width, center_y = self.height * 1.5)
+                                 font_size = 60, padding_x = self.width, padding_y = self.height)
         self.add_widget(self.score_board)
         
         Clock.schedule_interval(self.update, 1.0/60.0)
