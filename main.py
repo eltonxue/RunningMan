@@ -74,7 +74,7 @@ class Game(Widget):
         self.obstacles = Obstacles(source = "assets/obstacles/box1.jpg")
         self.invis_obstacles = InvisObstacles(source = "assets/obstacles/box1.jpg")
         
-        self.size = [1600 * .25, 900 * .25]
+        self.size = [1600 * .30, 900 * .30]
 
         
         self.add_widget(self.background)
@@ -105,7 +105,7 @@ class Game(Widget):
         if self.game_over == True:
             self.game_over_mes = Label(text = "Game Over" + '\n' + str(self.obstacles.score), 
                                    font_name = 'assets/fonts/Futura Extra Black Condensed BT.ttf', 
-                                 font_size = 40, center_x = (1600 * .25)/2, center_y = (900 * .25)/2, 
+                                 font_size = 40, center_x = (1600 * .30)/2, center_y = (900 * .30)/2, 
                                  halign = 'center',color = (1,1,1,1))
            
             self.add_widget(self.game_over_mes)
@@ -153,7 +153,7 @@ presentation = Builder.load_file("main.kv")
         
 class RunningMan(App):
     def build(self):
-        Window.size = [1600 * .25, 900 * .25]
+        Window.size = [1600 * .30, 900 * .30]
         return presentation
     
     def update(self, *ignore):
@@ -164,8 +164,5 @@ class RunningMan(App):
             
 if __name__ == "__main__":
     RunningMan().run()
-    
-    
-    
     
     

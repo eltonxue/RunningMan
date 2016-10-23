@@ -13,7 +13,7 @@ class InvisObstacles(Widget):
         self.add_widget(self.image_dupe)
         self.image_dupe2 = Sprite(source = source, x = 2200, y = 50)
         self.add_widget(self.image_dupe2)
-        self.image_dupe3 = Sprite(source = source, x = 2800, y = 50)
+        self.image_dupe3 = Sprite(source = source, x = 3000, y = 50)
         self.add_widget(self.image_dupe3)
         
         self.change = 3
@@ -32,5 +32,5 @@ class InvisObstacles(Widget):
         if self.image_dupe2.right <= 0:
             self.image_dupe2.x = 2200 - 60
         if self.image_dupe3.right <= 0:
-            self.image_dupe3.x = 2800 - 60
+            self.image_dupe3.x = 3000 - 60
         

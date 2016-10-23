@@ -14,7 +14,7 @@ class Obstacles(Widget):
         self.add_widget(self.image_dupe)
         self.image_dupe2 = Sprite(source = source, x = 2200, y = 50)
         self.add_widget(self.image_dupe2)
-        self.image_dupe3 = Sprite(source = source, x = 2800, y = 50)
+        self.image_dupe3 = Sprite(source = source, x = 3000, y = 50)
         self.add_widget(self.image_dupe3)
         
         self.change = 3
@@ -36,6 +36,6 @@ class Obstacles(Widget):
             self.image_dupe2.x = 2200
             self.score += 1
         if self.image_dupe3.right <= 60:
-            self.image_dupe3.x = 2800
+            self.image_dupe3.x = 3000
             self.score += 1
         
