@@ -51,7 +51,7 @@ class Player(Sprite):
             if self._jumped_count > len(jump_anim)-1:
                 self._jumped_count = 0
             
-        if self.y <= self._init_pos:
+        if self.y + 10 <= self._init_pos:
             
             self._jumped = False
             self.y = self._init_pos

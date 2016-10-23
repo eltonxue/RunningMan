@@ -66,12 +66,12 @@ class Game(Widget):
                                  font_size = 60, center_x = self.width, center_y = self.height * .75)
         self.add_widget(self.score_board)
         
-        self.start_game = True
+        self.start_game = False
         
         Clock.schedule_interval(self.update, 1.0/60.0)
     
-    #def on_touch_down(self,touch):
-        #self.start_game = True
+    def on_touch_up(self,touch):
+        self.start_game = True
         
     def update(self, *ignores):
         if self._check_hit():
