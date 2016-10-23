@@ -10,6 +10,7 @@ from kivy.core.window import Window
 from platform import Platform
 from background import Background
 from player import Player
+from invis_player import InvisPlayer
 
 
 from obstacles import Obstacles
@@ -20,7 +21,8 @@ class Game(Widget):
         self.platform = Platform(source = "assets/platform/platform1.png")
         self.background = Background(source = "assets/background/meadow.png")
 
-        self.player = Player(pos = (20,self.platform.height/2-5))
+        self.player = Player(pos = (20, self.platform.height/2 - 5))
+        self.invis_player = InvisPlayer(pos = (100, self.platform.height + 20))
 
       
         self.obstacles = Obstacles(source = "assets/obstacles/box1.jpg")
@@ -30,25 +32,33 @@ class Game(Widget):
         self.add_widget(self.background)
         self.add_widget(self.platform)
         self.add_widget(self.player)
+        self.add_widget(self.invis_player)
         self.add_widget(self.obstacles)
         Clock.schedule_interval(self.update, 1.0/60.0)
         
     def update(self, *ignores):
         if self._check_hit():
             print("Game Over 1")
-            return
+            print(self.invis_player.size, "<---- Size of Widget")
+            print(self.invis_player.pos, "<---- Position of Widget")
+            print(self.obstacles.image.pos)
+            print(self.obstacles.image_dupe.pos)
+            print(self.obstacles.image_dupe2.pos)
+            print(self.obstacles.image_dupe3.pos)
             
+            return
         
         self.player.update()
+        self.invis_player.update()
         self.platform.update()
         self.background.update()
         self.obstacles.update()
         
     def _check_hit(self):
-        condition1 = self.player.collide_widget(self.obstacles.image)
-        condition2 = self.player.collide_widget(self.obstacles.image_dupe) 
-        condition3 = self.player.collide_widget(self.obstacles.image_dupe2)
-        condition4 = self.player.collide_widget(self.obstacles.image_dupe3) 
+        condition1 = self.invis_player.collide_widget(self.obstacles.image)
+        condition2 = self.invis_player.collide_widget(self.obstacles.image_dupe) 
+        condition3 = self.invis_player.collide_widget(self.obstacles.image_dupe2)
+        condition4 = self.invis_player.collide_widget(self.obstacles.image_dupe3) 
         return condition1 or condition2 or condition3 or condition4
         
         

@@ -12,14 +12,14 @@ from sprite import Sprite
 class Obstacles(Widget):
     def __init__(self, source):
         super(Obstacles, self).__init__()
-        self.image = Sprite(source = source, x = self.width * 30, y = 50)
+        self.image = Sprite(source = source, x = 1100, y = 50)
         self.add_widget(self.image)
         self.size = self.image.size
-        self.image_dupe = Sprite(source = source, x = self.width * 44, y = 50)
+        self.image_dupe = Sprite(source = source, x = 1400, y = 50)
         self.add_widget(self.image_dupe)
-        self.image_dupe2 = Sprite(source = source, x = self.width * 52, y = 50)
+        self.image_dupe2 = Sprite(source = source, x = 1700, y = 50)
         self.add_widget(self.image_dupe2)
-        self.image_dupe3 = Sprite(source = source, x = self.width * 76, y = 50)
+        self.image_dupe3 = Sprite(source = source, x = 2000, y = 50)
         self.add_widget(self.image_dupe3)
 
         
@@ -30,11 +30,11 @@ class Obstacles(Widget):
         self.image_dupe3.x -= 4
         
         if self.image.right <= 0:
-            self.image.x = self.width * 44 + self.width
+            self.image.x = 110 * 10
         if self.image_dupe.right <= 0:
-            self.image_dupe.x = self.width * 52 + self.width
+            self.image_dupe.x = 140 * 10
         if self.image_dupe2.right <= 0:
-            self.image_dupe2.x = self.width * 64 + self.width
+            self.image_dupe2.x = 170 * 10
         if self.image_dupe3.right <= 0:
-            self.image_dupe3.x = self.width * 80 + self.width
+            self.image_dupe3.x = 200 * 10
         
