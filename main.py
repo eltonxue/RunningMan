@@ -21,13 +21,17 @@ from invis_obstacles import InvisObstacles
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 from kivy.lang import Builder
 
+<<<<<<< HEAD
 from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import StringProperty
 
+=======
+sm = ScreenManager()
+>>>>>>> origin/master
 class StartScreen(Screen):
     pass
-
+start_screen = StartScreen()
 class GameScreen(Screen):
     def __init__(self, **kwargs):
         super(GameScreen, self).__init__(**kwargs)
@@ -35,6 +39,7 @@ class GameScreen(Screen):
         self.add_widget(self.game)
 
 class SettingsScreen(Screen):
+<<<<<<< HEAD
     music_on_off = StringProperty("Music: ON")
     soundfx_on_off = StringProperty("Sound FX: ON")
     
@@ -49,6 +54,9 @@ class SettingsScreen(Screen):
             self.soundfx_on_off = "Sound FX: OFF"
         else:
             self.soundfx_on_off = "Sound FX: ON"
+=======
+    pass
+>>>>>>> origin/master
 
 class CreditsScreen(Screen):
     def __init__(self, **kwargs):
@@ -94,12 +102,13 @@ class Game(Widget):
     
     def on_touch_up(self,touch):
         self.start_game = True
-        
+    
     def update(self, *ignores):
         if self._check_hit():
             self.player.trigger_death()
-            print("Game Over!")
+            self.bind(on_touch_down = self._on_touch_down)
             return
+            
         
         if self.start_game == True:
             self.player.update()
@@ -120,6 +129,11 @@ class Game(Widget):
     
     def _game_over(self):
         return
+    
+    def _on_touch_down(self,*ignore):
+        parent = self.parent
+        parent.remove_widget(self)
+        parent.add_widget(StartScreen())
     
 presentation = Builder.load_file("main.kv") 
 

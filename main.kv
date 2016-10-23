@@ -9,8 +9,7 @@ ScreenManagement:
 	GameScreen:
 	
 <StartScreen>:
-	name: "start"
-	
+	id: start_screen
 	FloatLayout:
 
         AsyncImage:
@@ -65,16 +64,16 @@ ScreenManagement:
 	name: "settings"
 	
 	FloatLayout:
-	
 		Button:
 			color: 0,200,237,1
 			text: "Back"
 			font_size: 30
 			font_name: "assets/fonts/Amatic-Bold.ttf"
 			size_hint: 0.1, 0.1
-			on_release: app.root.current = "start"
+			on_release: app.root.current = "main"
 			pos_hint: {"right": 1, "top": 1} 
 			
+<<<<<<< HEAD
 	BoxLayout:
 		orientation: "vertical"
 		padding: 30
@@ -101,6 +100,8 @@ ScreenManagement:
 			background_color: 255,255,255,0.3
 
 			
+=======
+>>>>>>> origin/master
 <CreditsScreen>:
 	name: "credits"
 	
