@@ -1,4 +1,5 @@
 #: import FadeTransition kivy.uix.screenmanager.FadeTransition
+#: import RunningMan main.RunningMan
 
 ScreenManagement:
 	transition: FadeTransition()
@@ -37,7 +38,7 @@ ScreenManagement:
 			font_size: 25
 			font_name: "Arial"
 			size_hint: 0.1, 0.1
-			on_release: app.root.current = "settings"
+			on_release:	app.root.current = "settings"
 			pos_hint: {"top": 0.45}
 			background_color: 255,255,255,0.3
 			
@@ -47,7 +48,7 @@ ScreenManagement:
 			font_name: "Arial"
 			color: 0,200,237,1
 			size_hint: 0.1, 0.1
-			on_release: app.root.current = "game"
+			on_release: app.root.run_game()
 			pos_hint: {"top": 0.55}
 			background_color: 255,255,255,0.3
 			
@@ -79,6 +80,9 @@ ScreenManagement:
 		
 <GameScreen>:
 	name: "game"
+	
+	
+	
 	
 
 		
