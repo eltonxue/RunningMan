@@ -105,10 +105,15 @@ class Game(Widget):
         if self.game_over == True:
             self.game_over_mes = Label(text = "Game Over" + '\n' + str(self.obstacles.score), 
                                    font_name = 'assets/fonts/Futura Extra Black Condensed BT.ttf', 
-                                 font_size = 40, center_x = (1600 * .30)/2, center_y = (900 * .30)/2, 
+                                 font_size = 40, center_x = (1600 * .30)/2, center_y = (900 * .30)/2 , 
                                  halign = 'center',color = (1,1,1,1))
+            self.reminder = Label(text = "Tap anywhere to play again",
+                                  font_name = 'assets/fonts/Futura Extra Black Condensed BT.ttf',
+                                  font_size = 28,
+                                  center_x = (1600 * .30)/2, center_y = (900 * .30)/2- 60)
            
             self.add_widget(self.game_over_mes)
+            self.add_widget(self.reminder)
             self.bind(on_touch_down = self._on_touch_down)
             return
             
