@@ -8,7 +8,6 @@ from kivy.core.window import Window
 from kivy.uix.label import Label
 from kivy.core.audio import SoundLoader
 
-
 from platform import Platform
 from background import Background
 from player import Player
@@ -23,6 +22,7 @@ from kivy.properties import StringProperty
 
 background_music = SoundLoader.load('assets/music/sarudedandstorm.mp3')
 background_music.volume = 0.5
+
 class StartScreen(Screen):
     pass
 
@@ -117,7 +117,6 @@ class Game(Widget):
             self.bind(on_touch_down = self._on_touch_down)
             return
             
-        
         if self.start_game == True:
             self.player.update()
             self.invis_player.update()
