@@ -8,7 +8,6 @@ from kivy.core.window import Window
 from kivy.uix.label import Label
 from kivy.core.audio import SoundLoader
 
-
 from platform import Platform
 from background import Background
 from player import Player
@@ -122,7 +121,6 @@ class Game(Widget):
             
             return
             
-        
         if self.start_game == True:
             self.player.update()
             self.invis_player.update()
