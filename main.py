@@ -23,6 +23,8 @@ from kivy.properties import StringProperty
 
 background_music = SoundLoader.load('assets/music/sarudedandstorm.mp3')
 background_music.volume = 0.5
+
+
 class StartScreen(Screen):
     pass
 
@@ -39,10 +41,10 @@ class SettingsScreen(Screen):
     def toggle_music(self):
         if self.music_on_off == "Music: ON":
             self.music_on_off = "Music: OFF"
-            background_music.stop()
+            #background_music.stop()
         else:
             self.music_on_off = "Music: ON"
-            background_music.play()
+            #background_music.play()
 
     def toggle_soundfx(self):
         if self.soundfx_on_off == "Sound FX: ON":
@@ -62,7 +64,7 @@ class ScreenManagement(ScreenManager):
 class Game(Widget):
     def __init__(self):
         
-        background_music.play()
+        #background_music.play()
         
         super(Game, self).__init__()
         self.platform = Platform(source = "assets/platform/platform1.png")
@@ -96,6 +98,7 @@ class Game(Widget):
         self.start_game = False
         self.game_over = False
         
+        
         Clock.schedule_interval(self.update, 1.0/60.0)
     
     def on_touch_up(self,touch):
@@ -114,7 +117,9 @@ class Game(Widget):
            
             self.add_widget(self.game_over_mes)
             self.add_widget(self.reminder)
+            
             self.bind(on_touch_down = self._on_touch_down)
+            
             return
             
         
@@ -136,7 +141,8 @@ class Game(Widget):
                 self.platform.change += .005
                 self.obstacles.change += .005
                 self.invis_obstacles.change += .005
-        
+                self.player.increase_speed()
+                self.invis_player.increase_speed()
     def _check_hit(self):
         condition1 = self.invis_player.collide_widget(self.obstacles.image)
         condition2 = self.invis_player.collide_widget(self.obstacles.image_dupe) 
@@ -144,12 +150,13 @@ class Game(Widget):
         condition4 = self.invis_player.collide_widget(self.obstacles.image_dupe3) 
         return condition1 or condition2 or condition3 or condition4
     
-    def _game_over(self):
+    def _game_over(self,*ignore):
         return
-    
+        
+        
     def _on_touch_down(self,*ignore):
         parent = self.parent
-        
+        self.clear_widgets()
         parent.remove_widget(self)
         parent.parent.switch_to(StartScreen())
         parent.add_widget(Game())    

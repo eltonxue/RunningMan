@@ -2,8 +2,8 @@
 from kivy.uix.widget import Widget
 
 
-running_anim = {x:'assets/player_running/resized75/running{}t.gif'.format(str(x))   for x in range(0,10)}
-jump_anim = {x:'assets/player_running/jump/jump{}.gif'.format(str(x))   for x in range(0,7)}
+running_anim = 'assets/player_running/running_anim3.gif'
+backflip_anim = 'assets/player_running/jump_anim2.gif'
         
 class InvisPlayer(Widget):
     def __init__(self, pos):
@@ -12,9 +12,10 @@ class InvisPlayer(Widget):
         self._init_pos = pos[1]
         self._gravity = -.3
         self._velocity_y = 0
-        self._run_count = 0
-        self._jumped_count = 0
+        
         self._jumped = False
+        self.source = running_anim
+        self.anim_delay = 0.02
     
     
     def on_touch_down(self, *ignore):
@@ -32,12 +33,9 @@ class InvisPlayer(Widget):
             self._velocity_y += self._gravity
             self.y += self._velocity_y
             
-            self.source = jump_anim[self._jumped_count]
-            
-            self._jumped_count +=1
-            
-            if self._jumped_count > len(jump_anim)-1:
-                self._jumped_count = 0
+            self.source = backflip_anim
+            self.anim_loop = 1
+          
             
         if self.y <= self._init_pos:
             
@@ -46,9 +44,10 @@ class InvisPlayer(Widget):
         
         if self._jumped == False:
                
-            self._run_count+=1
-        
-            if self._run_count > len(running_anim) - 1:
-                self._run_count = 0
+
             
-            self.source = running_anim[self._run_count] 
+            self.source = running_anim
+    
+    def increase_speed(self):
+        if self.anim_delay > 0:
+            self.anim_delay -= 0.000001
